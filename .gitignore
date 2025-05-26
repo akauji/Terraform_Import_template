@@ -1,7 +1,14 @@
+# Azure Terraform Import Template - .gitignore
+# セキュリティ強化版
+
+# ============================================================================
+# Terraform関連ファイル
+# ============================================================================
+
 # Local .terraform directories
 **/.terraform/*
 
-# .tfstate files
+# .tfstate files (contain sensitive data)
 *.tfstate
 *.tfstate.*
 
@@ -29,14 +36,15 @@ override.tf.json
 .terraformrc
 terraform.rc
 
+# ============================================================================
+# OS関連ファイル
+# ============================================================================
+
 # Ignore Mac .DS_Store files
 .DS_Store
 
 # Ignore Windows Thumbs.db files
 Thumbs.db
-
-# Ignore PowerShell execution policy warnings
-*.ps1.log
 
 # Ignore temporary files
 *.tmp
@@ -47,8 +55,19 @@ Thumbs.db
 *.bak
 *.backup
 
+# ============================================================================
+# ログファイル
+# ============================================================================
+
 # Ignore log files
 *.log
+
+# Ignore PowerShell execution policy warnings
+*.ps1.log
+
+# ============================================================================
+# エディタ関連ファイル
+# ============================================================================
 
 # Ignore editor-specific files
 .vscode/
@@ -57,18 +76,136 @@ Thumbs.db
 *.swo
 *~
 
-# Ignore Azure CLI cache
-.azure/
+# ============================================================================
+# 環境設定ファイル
+# ============================================================================
 
 # Ignore environment-specific files that shouldn't be committed
 .env
 .env.local
 .env.*.local
 
+# ============================================================================
+# クラウドプロバイダー関連
+# ============================================================================
+
+# Ignore Azure CLI cache
+.azure/
+
+# Azure認証ファイル
+azure-credentials.json
+.azure-credentials
+service-principal.json
+
+# AWS認証ファイル
+.aws/
+aws-credentials
+*.aws
+
+# Google Cloud認証ファイル
+gcloud-credentials.json
+*.json.key
+service-account-*.json
+
+# ============================================================================
+# 生成されたファイル
+# ============================================================================
+
 # Ignore any generated import scripts
 import_generated.tf
 import_commands.txt
+import_commands.ps1
 
 # Ignore Azure resource discovery output
 azure_resources.json
 azure_resources.csv
+resource_discovery.json
+
+# ============================================================================
+# セキュリティ強化: 機密ファイルタイプ
+# ============================================================================
+
+# SSL/TLS証明書とキー
+*.pem
+*.key
+*.crt
+*.cer
+*.p12
+*.pfx
+*.csr
+
+# SSH keys
+id_rsa
+id_rsa.*
+id_dsa
+id_dsa.*
+id_ecdsa
+id_ecdsa.*
+id_ed25519
+id_ed25519.*
+known_hosts
+
+# Kubernetes設定
+.kube/
+kubeconfig
+*.kubeconfig
+
+# Docker認証
+.docker/config.json
+
+# ============================================================================
+# 機密情報パターン
+# ============================================================================
+
+# APIキーやトークンファイル
+*token*
+*secret*
+*password*
+*api-key*
+*access-key*
+*private-key*
+
+# データベース接続文字列
+*connection-string*
+*conn-str*
+*database-url*
+
+# その他の機密設定ファイル
+secrets.yaml
+secrets.yml
+config/secrets/
+.secrets/
+
+# ============================================================================
+# パッケージマネージャー関連
+# ============================================================================
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+# ============================================================================
+# その他
+# ============================================================================
+
+# IDE settings
+.idea/
+.vscode/settings.json
+.vscode/launch.json
+
+# Terraform backend configuration (if contains sensitive data)
+backend.tf
+
+# Exclude backend.tf only if it contains actual credentials
+# Keep backend.tf.example for template purposes
