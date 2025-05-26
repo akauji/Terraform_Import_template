@@ -1,0 +1,15 @@
+# Backend configuration for production environment
+# Uncomment and configure as needed
+
+terraform {
+  backend "azurerm" {
+    resource_group_name  = "rg-terraform-state-prod"
+    storage_account_name = "terraformstateprod001"
+    container_name      = "tfstate-prod"
+    key                 = "prod/terraform.tfstate"
+    
+    # Optional: Use SAS token or access key
+    # sas_token = "your-sas-token"
+    # access_key = "your-access-key"
+  }
+}

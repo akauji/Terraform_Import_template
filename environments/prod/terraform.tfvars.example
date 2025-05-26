@@ -1,0 +1,55 @@
+# Production environment variables
+# Copy this file and rename to terraform.tfvars, then update with your actual values
+
+# Azure Subscription
+subscription_id = "your-production-subscription-id-here"
+
+# Basic Configuration
+resource_group_name = "rg-prod-import-example"
+location           = "Japan East"
+environment        = "prod"
+project_name       = "azure-import-prod"
+
+# Virtual Network Configuration
+vnet_name          = "vnet-prod-import"
+vnet_address_space = ["10.1.0.0/16"]
+
+# Subnet Configuration
+subnet_name             = "subnet-prod-import"
+subnet_address_prefixes = ["10.1.1.0/24"]
+
+# Network Security Group
+nsg_name = "nsg-prod-import"
+
+# Storage Account
+storage_account_name            = "stprodimport001"  # Must be globally unique and lowercase
+storage_account_tier            = "Standard"
+storage_account_replication_type = "GRS"  # Geographic redundancy for production
+
+# Key Vault
+key_vault_name = "kv-prod-import-001"  # Must be globally unique
+key_vault_sku  = "premium"  # Premium SKU for production
+
+# Common Tags
+common_tags = {
+  Environment  = "prod"
+  Project      = "azure-import-prod"
+  ManagedBy    = "terraform"
+  ImportedFrom = "existing-azure-resources"
+  Owner        = "DevOps Team"
+  CostCenter   = "IT-001"
+  Criticality  = "High"
+  Backup       = "Required"
+}
+
+# Optional: Virtual Machine (uncomment if needed)
+# vm_name = "vm-prod-import"
+# vm_size = "Standard_D2s_v3"  # Larger size for production
+
+# Optional: App Service (uncomment if needed)
+# app_service_plan_name = "asp-prod-import"
+# app_service_name      = "app-prod-import"
+
+# Optional: SQL Database (uncomment if needed)
+# sql_server_name   = "sql-prod-import"
+# sql_database_name = "db-prod-import"

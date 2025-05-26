@@ -1,0 +1,15 @@
+# Backend configuration for development environment
+# Uncomment and configure as needed
+
+terraform {
+  backend "azurerm" {
+    resource_group_name  = "rg-terraform-state-dev"
+    storage_account_name = "terraformstatedev001"
+    container_name      = "tfstate-dev"
+    key                 = "dev/terraform.tfstate"
+    
+    # Optional: Use SAS token or access key
+    # sas_token = "your-sas-token"
+    # access_key = "your-access-key"
+  }
+}

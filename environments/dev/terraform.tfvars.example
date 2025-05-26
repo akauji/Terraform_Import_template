@@ -1,0 +1,53 @@
+# Development environment variables
+# Copy this file and rename to terraform.tfvars, then update with your actual values
+
+# Azure Subscription
+subscription_id = "your-subscription-id-here"
+
+# Basic Configuration
+resource_group_name = "rg-dev-import-example"
+location           = "Japan East"
+environment        = "dev"
+project_name       = "azure-import-dev"
+
+# Virtual Network Configuration
+vnet_name          = "vnet-dev-import"
+vnet_address_space = ["10.0.0.0/16"]
+
+# Subnet Configuration
+subnet_name             = "subnet-dev-import"
+subnet_address_prefixes = ["10.0.1.0/24"]
+
+# Network Security Group
+nsg_name = "nsg-dev-import"
+
+# Storage Account
+storage_account_name            = "stdevimport001"  # Must be globally unique and lowercase
+storage_account_tier            = "Standard"
+storage_account_replication_type = "LRS"
+
+# Key Vault
+key_vault_name = "kv-dev-import-001"  # Must be globally unique
+key_vault_sku  = "standard"
+
+# Common Tags
+common_tags = {
+  Environment  = "dev"
+  Project      = "azure-import-dev"
+  ManagedBy    = "terraform"
+  ImportedFrom = "existing-azure-resources"
+  Owner        = "DevOps Team"
+  CostCenter   = "IT-001"
+}
+
+# Optional: Virtual Machine (uncomment if needed)
+# vm_name = "vm-dev-import"
+# vm_size = "Standard_B1s"
+
+# Optional: App Service (uncomment if needed)
+# app_service_plan_name = "asp-dev-import"
+# app_service_name      = "app-dev-import"
+
+# Optional: SQL Database (uncomment if needed)
+# sql_server_name   = "sql-dev-import"
+# sql_database_name = "db-dev-import"
