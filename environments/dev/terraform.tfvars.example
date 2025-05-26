@@ -1,4 +1,4 @@
-# Development environment variables
+# Environment variables
 # Copy this file and rename to terraform.tfvars, then update with your actual values
 
 # Azure Subscription

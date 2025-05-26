@@ -12,13 +12,10 @@ Terraform_Import_template/
 ├── outputs.tf                  # 出力定義
 ├── terraform.tf                # Terraformプロバイダー設定
 ├── .gitignore                  # Git除外設定
-├── environments/               # 環境別設定
-│   ├── dev/                   # 開発環境
-│   │   ├── terraform.tfvars   # 開発環境変数
-│   │   └── backend.tf         # 開発環境バックエンド設定
-│   └── prod/                  # 本番環境
-│       ├── terraform.tfvars   # 本番環境変数
-│       └── backend.tf         # 本番環境バックエンド設定
+├── environments/               # 環境設定
+│   └── dev/                   # 開発環境
+│       ├── terraform.tfvars   # 環境変数
+│       └── backend.tf         # バックエンド設定
 ├── modules/                    # 再利用可能なモジュール
 ├── scripts/                    # 自動化スクリプト
 │   ├── import_resources.ps1   # リソースインポートスクリプト

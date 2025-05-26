@@ -1,4 +1,4 @@
-# Backend configuration for development environment
+# Backend configuration
 # Uncomment and configure as needed
 
 terraform {

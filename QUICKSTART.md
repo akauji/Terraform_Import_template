@@ -6,7 +6,7 @@
 
 ### ステップ1: 設定ファイルの準備
 ```powershell
-# 1. 開発環境用設定ファイルをコピー
+# 1. 設定ファイルをコピー
 cp environments\dev\terraform.tfvars.example environments\dev\terraform.tfvars
 
 # 2. 設定ファイルを編集（実際の値に変更）

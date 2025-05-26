@@ -30,7 +30,7 @@ terraform init
 
 ### 1.3 環境設定ファイルの準備
 ```bash
-# 開発環境の場合
+# 設定ファイルをコピー
 cp environments/dev/terraform.tfvars.example environments/dev/terraform.tfvars
 cp environments/dev/backend.tf.example environments/dev/backend.tf
 
